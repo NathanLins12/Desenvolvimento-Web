@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Class 06 Forms</title>
+    <style>
+        form {
+            width: 320px;
+        }
+        input {
+            width: 100%;
+        }
+    </style>
+</head>
+<body>
+    <h1>Class Forms</h1>
+    <form method="get">
+        <label for="name">Name:</label>
+        <input  
+            type="text"
+            id="name"
+            name="nome"
+            placeholder="Digite seu nome..."
+            required
+            >
+            <button>Enviar</button>
+    </form>
+
+    <br><br><br>
+
+    <fieldset>
+        <section>
+            <legend>Login</legend><br><br>
+    
+            <label for="E-mail">E-mail</label><br><br>
+            <input type="email"
+            id="email"
+            name="user email"
+            placeholder="Digite seu email..."
+            >
+
+        </section>
+<br>
+        <section>
+            <label for="E-mail">Password</label> <br><br>
+            <input type="password"
+            id="password"
+            name="user password"
+            placeholder="Digite sua senha..."
+            >
+    
+            <button type="submit">Enviar</button>
+        </section>
+    </fieldset>
+<br><br><br><br>
+    <form method="get">
+        <input type="number">
+           
+        <br><br>
+        <input type="date">
+         <button>Enviar</button>
+
+
+
+<br><br>
+
+<input type="range">
+
+<br><br>
+
+<input type="file"
+accept=".jpeg">
+            
+<input type="color"
+value="#CC44CC"
+list="groupColor">
+
+<br><br>
+ 
+<datalist
+id="groupColor">
+    <option></option>
+    <option></option>
+    <option></option>
+    <option></option>
+    <option></option>
+</datalist>
+
+<br>
+<button>Enviar</button>
+
+<br><br>
+
+<label for="html">html</label>
+<input type="checkbox"
+id="html">
+
+
+<br><br>
+
+
+<label for="yes">sim</label>
+        <input type="radio"
+        id="sim"
+         name="term">
+        <label for="no">Não</label>
+        <input type="radio"
+        id="Não"
+        name="term"> >
+
+
+        <br><br>
+<label for="fruits"></label>
+        <select name="fruits" id="fruits">
+        <option value="Manga">Manga</option>
+        <option value="Acerola">Acerola</option>
+        <option value="Abacaxi">Abacaxi</option>
+    </select>
+        <br><br>
+
+        <button>Enviar</button>
+
+        <br><br>
+        <label for="">Observações</label>
+        <textarea
+        name="" 
+        id="" 
+        cols="20" 
+        rows="10"
+        maxlength="255"
+        ></textarea>
+</form>
+</body>
+</html>

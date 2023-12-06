@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Class 05 Table</title>
+    <style>
+        table {
+            border-collapse: collapse;
+        }
+        th, td {
+            border: solid 2px;
+        }
+
+        thead {
+            background: lightgray;
+        }
+    </style>
+</head>
+<body>
+    <table>
+        <caption>Lista de Compras</caption>
+        <thead>
+            <tr>
+            <th scope="col">Produto</th>
+            <th scope="col">Preço</th>
+        </tr>
+        </thead>
+        <tr>
+            <td>Arroz</td>
+            <td>25,00</td>
+        </tr>
+        <tr>
+            <td>Feijão</td>
+            <td>9,00</td>
+        </tr>
+        <tr>
+            <td>Carne</td>
+            <td>49,90</td>
+        </tr>
+        <tbody>
+<tfoot>
+    <tr>
+        <th scope="row -">Total</th>
+        <td><strong>84,90</strong></td>
+    </tr>
+</tfoot>
+
+        </tbody>
+    </table>
+
+</body>
+</html>

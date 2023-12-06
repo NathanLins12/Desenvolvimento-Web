@@ -1,0 +1,34 @@
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box
+}
+
+body {
+}
+
+.square {
+    background-color: lightseagreen;
+    height: 120px;
+    width: 120px;
+    padding: 16px;
+}
+
+
+#squareXX {
+    margin: 32px 0 0 32px;
+    display: inline-block;
+}
+
+#squareXY {
+    background: orange;
+    display: inline-block;
+}
+
+#squareXZ {
+    top: 32px;
+    left: 32px;
+    background: rgb(190, 123, 134);
+    position: absolute;
+    z-index: 3;
+}
