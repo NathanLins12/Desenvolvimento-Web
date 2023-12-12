@@ -1,4 +1,5 @@
 import { ChangeEvent, useEffect, useState } from "react";
+import { UserCard } from "./components/UserCard";
 
 type UserData = {
   name: string;
@@ -12,9 +13,6 @@ export function App() {
   const [auxName, setAuxName] = useState("");
   const [data, setData] = useState<UserData>({} as UserData);
 
-  let count = 0;
-  console.log(count);
-
   function addCount() {
     // Closures
     setCount((prevState) => prevState + 1);
@@ -26,7 +24,7 @@ export function App() {
   }
 
   function handleSubmit() {
-    event?.preventDefault()
+    event?.preventDefault();
     setAuxName(name);
   }
 
@@ -36,7 +34,7 @@ export function App() {
       .then((response) => response.json())
       .then((data) => setData(data));
     console.log("effect");
-  }, [name]);
+  }, [auxName]);
 
   console.log(data);
 
@@ -56,11 +54,9 @@ export function App() {
       </form>
 
       {data && (
-        <section>
-          <h2>{data.name}</h2>
-          <img src={data.avatar_url} alt="" />
-          <p>{data.bio}</p>
-        </section>
+        <UserCard name={data.name} 
+        avatar_url={data.avatar_url} 
+        bio={data.bio} />
       )}
     </>
   );
