@@ -1,11 +1,11 @@
-import { Button } from "./components/Button";
+import { Button } from "../components/Button";
 import { AppContainer } from "./styles";
 
 export function App() {
   return (
-    <AppContainer >
+    <AppContainer>
       <h1>Class CSS in JS</h1>
-      <Button/>  
+      <Button />
     </AppContainer>
   );
 }
