@@ -4,11 +4,8 @@ import { router } from "./routes";
 const app = express();
 const port = 3000;
 
-app.use(router);
+app.use(router)
 
 app.listen(port, () => {
-  console.log(`Server is running on port ${port}...`);
+  console.log(`O servidor está rodando na PORTA ${port}`);
 });
-
-//middleware
-app.use(express.json())
