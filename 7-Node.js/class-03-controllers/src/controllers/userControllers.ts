@@ -1,14 +1,19 @@
-import { Request, Response } from "express";
+import { Request, Response, NextFunction } from "express";
 
 export const userControllers = {
-  create(req: Request, res: Response) {
-    const { id, name, age } = req.body;
+  async create(req: Request, res: Response, next: NextFunction) {
+    try {
+      const { id, name, age } = req.body;
 
-    if (id && name && age) {
-      res.status(200).json({ status: `user ${id} created!` });
-      return;
+      if (id && name && age) {
+        // console.log(a);
+
+        return res.status(201).json({ status: `user ${id} created!` });
+      }
+      throw res.status(400).json({ status: `user not created!` });
+    } catch (error) {
+      next(error);
     }
-    res.status(200).json({ status: `user not created!` });
   },
 
   read(req: Request, res: Response) {
@@ -16,17 +21,17 @@ export const userControllers = {
     res.status(200).json({ user: id });
   },
 
-  update(req: Request, res: Response) {
-    const { id } = req.params;
-    const { name, age } = req.body;
+  async update(req: Request, res: Response, next: NextFunction) {
+    try {
+      const { id } = req.params;
+      const { name, age } = req.body;
 
-    if (id && name && age) {
-      console.log("updated", { id, name, age });
-      res.status(200).json({ status: `user ${id} updated` });
-      return;
-    }
-
-    res.status(200).json({ status: "user not updated!" });
+      if (id && name && age) {
+        console.log("updated", { id, name, age });
+        return res.status(200).json({ status: `user ${id} updated` });
+      }
+      throw res.status(200).json({ status: "user not updated!" });
+    } catch (error) {}
   },
 
   delete(req: Request, res: Response) {

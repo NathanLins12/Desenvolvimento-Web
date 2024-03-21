@@ -16,4 +16,5 @@ export const userControllers = {
   delete(req: Request, res: Response) {
     res.send({ mensage: "deleted!" });
   },
+  
 };
