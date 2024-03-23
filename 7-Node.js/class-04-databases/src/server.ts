@@ -17,7 +17,7 @@ app.listen(port, () => {
 });
 
 sqliteContection()
-  .then(() => console.log("Database is disconected..."))
+  .then(() => console.log("Database is conected..."))
   .catch((error) => console.error(error));
 
 runMigrations();
