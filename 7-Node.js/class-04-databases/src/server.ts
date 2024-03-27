@@ -7,7 +7,6 @@ import { appErrors } from "./middlewares/appErrors";
 const app = express();
 const port = 3000;
 
-
 app.use(express.json());
 app.use(router);
 app.use(appErrors);
