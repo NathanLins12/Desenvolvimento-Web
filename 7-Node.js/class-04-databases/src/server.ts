@@ -1,6 +1,6 @@
 import express from "express";
 import { router } from "./routes";
-import { sqliteContection } from "./databases/sqlite3";
+import { sqliteConnection } from "./databases/sqlite3";
 import { runMigrations } from "./databases/sqlite3/migrations";
 import { appErrors } from "./middlewares/appErrors";
 
@@ -12,11 +12,11 @@ app.use(router);
 app.use(appErrors);
 
 app.listen(port, () => {
-  console.log(`Server is loading in the port ${port}!`);
+  console.log(`Server is running on port ${port}`);
 });
 
-sqliteContection()
-  .then(() => console.log("Database is conected..."))
+sqliteConnection()
+  .then(() => console.log("Database is connected..."))
   .catch((error) => console.error(error));
 
 runMigrations();
