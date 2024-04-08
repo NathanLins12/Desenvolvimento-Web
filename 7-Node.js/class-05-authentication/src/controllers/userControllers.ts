@@ -1,5 +1,6 @@
 import { Request, Response, NextFunction } from "express";
 import { z } from "zod";
+import { userRepositorie } from "../repositories/userRepositories";
 
 export const userControllers = {
   async create(req: Request, res: Response, next: NextFunction) {
@@ -37,10 +38,21 @@ export const userControllers = {
         .strict();
 
       const { name, email, password } = userSchema.parse(req.body);
-      console.log(name, email, password);
-      
 
-      return res.status(201).json({ message: "User created!" });
+      const usersExists = await userRepositorie.getByEmail(email);
+      if (usersExists)
+        throw res.status(400).json({
+          message: "email already exists!",
+        });
+      console.log(name, email, password);
+
+      const usersCreated = await userRepositorie.create({
+        name,
+        email,
+        password,
+      });
+
+      return res.status(201).json({ message: "User created!", usersCreated });
     } catch (error) {
       return next(error);
     }
@@ -48,7 +60,15 @@ export const userControllers = {
 
   async read(req: Request, res: Response, next: NextFunction) {
     try {
-      return res.status(200).json({ message: "User read!" });
+      const userID = "9edd08bb-ab78-4e29-8149-b944ca5fdf4b";
+
+      const user = await userRepositorie.getByID(userID);
+      if (!user) throw res.status(404).json({ message: " User not found" });
+
+      const { name, email } = user;
+      console.log(user);
+
+      return res.status(200).json({ name, email });
     } catch (error) {
       return next(error);
     }
