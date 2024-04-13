@@ -60,7 +60,7 @@ export const userControllers = {
 
   async read(req: Request, res: Response, next: NextFunction) {
     try {
-      const userID = "9edd08bb-ab78-4e29-8149-b944ca5fdf4b";
+      const userID = req.userID;
 
       const user = await userRepositorie.getByID(userID);
       if (!user) throw res.status(404).json({ message: " User not found" });

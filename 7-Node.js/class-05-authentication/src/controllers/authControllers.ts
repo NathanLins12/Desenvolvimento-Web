@@ -28,12 +28,12 @@ export const authControllers = {
 
       const user = await userRepositorie.getByEmail(email);
 
-      if (!user) throw res.status(401).json({ message: "email invalid!" });
+      if (!user) throw res.status(401).json({ message: "email or password invalid!" });
 
       const passwordcheck = await compare(password, user.password);
 
       if (!passwordcheck) {
-        throw res.status(401).json({ message: "password invalid!" });
+        throw res.status(401).json({ message: "email or password invalid!" });
       }
 
       const token = sign({ id: user.id }, process.env.SECRET_TOKEN, {
